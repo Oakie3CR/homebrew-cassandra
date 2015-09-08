@@ -5,11 +5,8 @@ class Cassandra21 < Formula
   mirror "https://archive.apache.org/dist/cassandra/2.1.7/apache-cassandra-2.1.7-bin.tar.gz"
   sha256 "add1a34b8e07dacb16df6b8dbe50c66d77cb46b89f66424103e2fd4459b79089"
 
-  bottle do
-    sha256 "24b46c811e585ea4882908a5399108407e83423d7a269b8d49bf378188b724c1" => :yosemite
-    sha256 "396d7e65c4e0ad9a45d6b0c91219b1a4b660c8c430671b8a7e8965925fda27b6" => :mavericks
-    sha256 "f2aa85f9cbb1622e31a614a715b4416d008b1b5ca1354e7264eea8140f42af87" => :mountain_lion
-  end
+  conflicts_with 'cassandra',
+    :because => 'cassandra21 and cassandra install different versions ofthe same binaries.'
 
   depends_on :python if MacOS.version <= :snow_leopard
 
